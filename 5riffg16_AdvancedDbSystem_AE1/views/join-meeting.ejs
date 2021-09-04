@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content=""/>
+    <title>ParkHeroes</title>
+
+    <link
+            rel="canonical"
+            href="https://getbootstrap.com/docs/4.5/examples/album/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+    />
+
+    <link href="css/album.css" rel="stylesheet"/>
+</head>
+<body>
+<%- include('common/header'); -%>
+<div class="container">
+    <h1 class="text-center">Meeting info 🌳</h1>
+    <div class="row justify-content-md-center">
+        <div class="col-">
+            <form method="POST" action="/parks/join/<%= parks._id %>/<%= sessionId %>">
+                <div class="form-group">
+                    <label for="name">Park Name</label>
+                    <input
+                            value="<%= parks.name %>"
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            name="name"
+                            placeholder="Enter Name"
+                            readonly
+                    />
+
+
+                </div>
+
+                <div class="form-group">
+                    <label for="postcode">Park Post Code</label>
+                    <input
+                            value="<%= parks.postcode %>"
+                            type="text"
+                            class="form-control"
+                            id="postcode"
+                            name="postcode"
+                            readonly
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Meeting Date</label>
+                    <input
+                            value="<%= moment(parks.date).format("YYYY-MM-DD") %>"
+                            type="date"
+                            class="form-control"
+                            id="date"
+                            name="date"
+                            placeholder="Enter Date"
+                            readonly
+                    />
+
+
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Meeting Time</label>
+                    <input
+                            value="<%= parks.time %>"
+                            type="time"
+                            class="form-control"
+                            id="time"
+                            name="time"
+                            placeholder="Enter Name"
+                            readonly
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="park-id"></label>
+                    <input
+                            value="<%= parks._id %>"
+                            type="text"
+                            class="form-control"
+                            id="park-id"
+                            name="park-id"
+                            hidden
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="user-id"></label>
+                    <input
+                            value="<%= sessionId %>"
+                            type="text"
+                            class="form-control"
+                            id="user-id"
+                            name="user-id"
+                            hidden
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-success">Join</button>
+                <button type="button" class="btn btn-danger"><a style="text-decoration: none; color: white"
+                                                                href="/parks">Cancel</a></button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('common/footer'); -%>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"> ParkHeroes </a>
+    <div class="navbar">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="/">
+          Home <span class="sr-only">(current)</span>
+        </a>
+        <a class="nav-link" href="/hero-schedule"> Hero Schedule </a>
+        <a class="nav-link" href="/parks">Search Parks</a>
+        <% if(loggedUser) { %>
+          ...
+          <a class="nav-link" href="/logout"> <%= loggedUser.username %> (Logout) </a> <%
+        }%> 
+        <% if(!loggedUser) { %>
+          <a class="nav-link" href="/login"> Login </a>
+          <a class="nav-link" href="/join"> Register </a>
+        <% } %>
+      </div>
+    </div>  
+  </nav>
+</header>
+;
